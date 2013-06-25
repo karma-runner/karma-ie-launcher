@@ -20,8 +20,13 @@
   "peerDependencies": {
     "karma": "~0.9"
   },
-  "os" : [
+  "os": [
     "win32"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-bump": "0.0.6",
+    "grunt-npm": "0.0.2"
+  }
 }
