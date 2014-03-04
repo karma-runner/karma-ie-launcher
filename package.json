@@ -28,6 +28,7 @@
     "grunt-auto-release": "~0.0.2"
   },
   "contributors": [
-    "Andreas Krummsdorf <a.krummsdorf@litixsoft.de>"
+    "Andreas Krummsdorf <a.krummsdorf@litixsoft.de>",
+    "Christopher Currie <ccurrie@impresys.com>"
   ]
 }
