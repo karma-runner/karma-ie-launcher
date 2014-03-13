@@ -1,17 +1,47 @@
 var fs = require('fs');
+var util = require('util');
+var urlparse = require('url').parse;
+var urlformat = require('url').format;
 
 var IEBrowser = function(baseBrowserDecorator, args) {
   baseBrowserDecorator(this);
 
-  args = args || {};
   var flags = args.flags || [];
 
-  this._getOptions = function(url) {
+  this._getOptions = function (url) {
+    var urlObj = urlparse(url, true);
+
+    handleXUaCompatible(args, urlObj);
+
+    delete urlObj.search; //url.format does not want search attribute
+    url = urlformat(urlObj);
+
     return [
       '-extoff'
     ].concat(flags, [url]);
-  }
+  };
 };
+
+/**
+ * Handle x-ua-compatible option:
+ *
+ * Usage :
+ *   customLaunchers: {
+ *     IE9: {
+ *       base: 'IE',
+ *       'x-ua-compatible': 'IE=EmulateIE9'
+ *     }
+ *   }
+ *
+ * This is done by passing the option on the url, in response the Karma server will
+ * set the following meta in the page.
+ *   <meta http-equiv="X-UA-Compatible" content="[VALUE]"/>
+ */
+function handleXUaCompatible(args, urlObj) {
+  if (args['x-ua-compatible']) {
+    urlObj.query['x-ua-compatible'] = args['x-ua-compatible'];
+  }
+}
 
 function getInternetExplorerExe() {
     var suffix = '\\Internet Explorer\\iexplore.exe',
@@ -36,7 +66,7 @@ IEBrowser.prototype = {
   ENV_CMD: 'IE_BIN'
 };
 
-IEBrowser.$inject = ['baseBrowserDecorator'];
+IEBrowser.$inject = ['baseBrowserDecorator', 'args'];
 
 
 // PUBLISH DI MODULE
