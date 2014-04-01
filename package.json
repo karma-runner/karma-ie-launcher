@@ -30,6 +30,8 @@
     "grunt-jscs-checker": "~0.4.0"
   },
   "contributors": [
+    "sylvain-hamel <sylvainhamel0@gmail.com>",
+    "Sylvain Hamel <sylvainhamel0@gmail.com>",
     "Andreas Krummsdorf <a.krummsdorf@litixsoft.de>",
     "Christopher Currie <ccurrie@impresys.com>"
   ]
