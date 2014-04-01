@@ -51,8 +51,7 @@ var IEBrowser = function(baseBrowserDecorator, logger, args) {
     exec(wmic, function(err) {
       if (err) {
         log.error('Killing extra IE process failed. ' + err);
-      }
-      else {
+      } else {
         log.debug('Killed extra IE process ' + pid);
       }
       cb();
@@ -60,7 +59,7 @@ var IEBrowser = function(baseBrowserDecorator, logger, args) {
 
   }
 
-  this._getOptions = function (url) {
+  this._getOptions = function(url) {
     var urlObj = urlparse(url, true);
 
     handleXUaCompatible(args, urlObj);
@@ -84,18 +83,20 @@ var IEBrowser = function(baseBrowserDecorator, logger, args) {
 };
 
 function getInternetExplorerExe() {
-    var suffix = '\\Internet Explorer\\' + processName,
-        prefixes = [process.env['PROGRAMW6432'], process.env['PROGRAMFILES(X86)'], process.env['PROGRAMFILES']],
-        prefix, i;
+  var suffix = '\\Internet Explorer\\' + processName,
+    prefixes = [process.env['' + 'PROGRAMW6432'], // '' + ' trick to keep jscs happy
+                process.env['' + 'PROGRAMFILES(X86)'],
+                process.env['' + 'PROGRAMFILES']],
+    prefix, i;
 
-    for (i = 0; i < prefixes.length; i++) {
-        prefix = prefixes[i];
-        if (prefix && fs.existsSync(prefix + suffix)) {
-            return prefix + suffix;
-        }
+  for (i = 0; i < prefixes.length; i++) {
+    prefix = prefixes[i];
+    if (prefix && fs.existsSync(prefix + suffix)) {
+      return prefix + suffix;
     }
+  }
 
-    throw new Error("Internet Explorer not found");
+  throw new Error('Internet Explorer not found');
 }
 
 IEBrowser.prototype = {
