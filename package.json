@@ -25,7 +25,9 @@
     "grunt": "~0.4.1",
     "grunt-bump": "~0.0.7",
     "grunt-npm": "~0.0.2",
-    "grunt-auto-release": "~0.0.2"
+    "grunt-auto-release": "~0.0.2",
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-jscs-checker": "~0.4.0"
   },
   "contributors": [
     "Andreas Krummsdorf <a.krummsdorf@litixsoft.de>",
