@@ -1,4 +1,4 @@
-# karma-ie-launcher
+# karma-ie-launcher [![Build Status](https://travis-ci.org/karma-runner/karma-ie-launcher.svg?branch=master)](http://travis-ci.org/karma-runner/karma-ie-launcher)
 
 > Launcher for Internet Explorer.
 
