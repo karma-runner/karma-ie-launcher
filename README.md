@@ -14,7 +14,7 @@ The easiest way is to keep `karma-ie-launcher` as a devDependency in your `packa
 }
 ```
 
-You can simple do it by:
+You can simply do it by:
 ```bash
 npm install karma-ie-launcher --save-dev
 ```
@@ -34,9 +34,25 @@ You can pass list of browsers as a CLI argument too:
 karma start --browsers IE
 ```
 
+You can run IE in emulation mode by setting the 'x-ua-compatible' option:
+```js
+customLaunchers: {
+  IE9: {
+    base: 'IE',
+    'x-ua-compatible': 'IE=EmulateIE9'
+  },
+  IE8: {
+    base: 'IE',
+    'x-ua-compatible': 'IE=EmulateIE8'
+  }
+}
+```
+See [Specifying legacy document modes] on MSDN.
+
 ----
 
 For more information on Karma see the [homepage].
 
 
 [homepage]: http://karma-runner.github.com
+[Specifying legacy document modes]: http://msdn.microsoft.com/en-us/library/ie/jj676915(v=vs.85).aspx
