@@ -95,8 +95,6 @@ function getInternetExplorerExe() {
       return prefix + suffix;
     }
   }
-
-  throw new Error('Internet Explorer not found');
 }
 
 IEBrowser.prototype = {
