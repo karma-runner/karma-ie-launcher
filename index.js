@@ -5,6 +5,21 @@ var exec = require('child_process').exec;
 
 var processName = 'iexplore.exe';
 
+function getInternetExplorerExe() {
+  var suffix = '\\Internet Explorer\\' + processName,
+    prefixes = [process.env['' + 'PROGRAMW6432'], // '' + ' trick to keep jscs happy
+                process.env['' + 'PROGRAMFILES(X86)'],
+                process.env['' + 'PROGRAMFILES']],
+    prefix, i;
+
+  for (i = 0; i < prefixes.length; i++) {
+    prefix = prefixes[i];
+    if (prefix && fs.existsSync(prefix + suffix)) {
+      return prefix + suffix;
+    }
+  }
+}
+
 var IEBrowser = function(baseBrowserDecorator, logger, args) {
   baseBrowserDecorator(this);
 
@@ -76,26 +91,15 @@ var IEBrowser = function(baseBrowserDecorator, logger, args) {
   this._onProcessExit = function(code, errorOutput) {
     var pid = this._process.pid;
     killExtraIEProcess(pid, function() {
-      baseOnProcessExit(code, errorOutput);
+      if (baseOnProcessExit) {
+        baseOnProcessExit(code, errorOutput);
+      }
     });
   };
 
+  // this is to expose the function for unit testing
+  this._getInternetExplorerExe = getInternetExplorerExe;
 };
-
-function getInternetExplorerExe() {
-  var suffix = '\\Internet Explorer\\' + processName,
-    prefixes = [process.env['' + 'PROGRAMW6432'], // '' + ' trick to keep jscs happy
-                process.env['' + 'PROGRAMFILES(X86)'],
-                process.env['' + 'PROGRAMFILES']],
-    prefix, i;
-
-  for (i = 0; i < prefixes.length; i++) {
-    prefix = prefixes[i];
-    if (prefix && fs.existsSync(prefix + suffix)) {
-      return prefix + suffix;
-    }
-  }
-}
 
 IEBrowser.prototype = {
   name: 'IE',
