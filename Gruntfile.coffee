@@ -4,6 +4,10 @@ JSHINT_NODE =
 
 module.exports = (grunt) ->
 
+  allSrc = ['index.js']
+  allTests = ['test/mocha-globals.coffee', 'test/*.spec.coffee']
+  all = [].concat(allSrc).concat(allTests).concat(['Gruntfile.coffee'])
+
   # Project configuration.
   grunt.initConfig
     pkgFile: 'package.json'
@@ -26,7 +30,7 @@ module.exports = (grunt) ->
     jshint:
       default:
         files:
-          src: ['index.js']
+          src: allSrc
         options: JSHINT_NODE
 
       options:
@@ -54,15 +58,37 @@ module.exports = (grunt) ->
         globals: {}
 
     jscs:
-      default: files: src:  ['index.js']
+      default: files: src: allSrc
       options:
         config: '.jscs.json'
 
+    simplemocha:
+      options:
+        ui: 'bdd'
+        reporter: 'dot'
+      unit:
+        src: allTests
+
+    watch:
+      files: all
+      tasks:['default']
+
+    # CoffeeLint options
+    # http://www.coffeelint.org/#options
+    coffeelint:
+      unittests: files: src: ['Gruntfile.coffee', 'test/**/*.coffee']
+      options:
+        max_line_length:
+          value: 100
+
+  grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-npm'
   grunt.loadNpmTasks 'grunt-bump'
   grunt.loadNpmTasks 'grunt-auto-release'
   grunt.loadNpmTasks 'grunt-contrib-jshint'
   grunt.loadNpmTasks 'grunt-jscs-checker'
+  grunt.loadNpmTasks 'grunt-simple-mocha'
+  grunt.loadNpmTasks 'grunt-coffeelint'
 
   grunt.registerTask 'release', 'Bump the version and publish to NPM.', (type) ->
     grunt.task.run [
@@ -70,5 +96,6 @@ module.exports = (grunt) ->
       "bump:#{type||'patch'}",
       'npm-publish'
     ]
-  grunt.registerTask 'default', ['lint']
-  grunt.registerTask 'lint', ['jshint', 'jscs']
+  grunt.registerTask 'test', ['simplemocha']
+  grunt.registerTask 'default', ['lint', 'test']
+  grunt.registerTask 'lint', ['jshint', 'jscs', 'coffeelint']
