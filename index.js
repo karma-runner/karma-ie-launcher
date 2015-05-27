@@ -82,9 +82,7 @@ var IEBrowser = function(baseBrowserDecorator, logger, args) {
     delete urlObj.search; //url.format does not want search attribute
     url = urlformat(urlObj);
 
-    return [
-      '-extoff'
-    ].concat(flags, [url]);
+    return flags.concat(url);
   };
 
   var baseOnProcessExit = this._onProcessExit;
