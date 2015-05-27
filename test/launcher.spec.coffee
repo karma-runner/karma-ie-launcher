@@ -63,16 +63,11 @@ describe 'launcher', ->
         launcher = injector.get('launcher:IE')
         launcher._getOptions('url')
 
-    it 'should add -extoff', (done) ->
-      options = getOptions('url', module)
-      expect(options[0]).to.equal '-extoff'
-      done()
-
     it 'should include args.flags', (done) ->
       module.args[1] = {flags: ['-flag1', '-flag2']}
       options = getOptions('url', module)
-      expect(options[1]).to.equal '-flag1'
-      expect(options[2]).to.equal '-flag2'
+      expect(options[0]).to.equal '-flag1'
+      expect(options[1]).to.equal '-flag2'
       done()
 
     it 'should return url as the last flag', (done) ->
