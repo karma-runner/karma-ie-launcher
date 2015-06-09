@@ -1,10 +1,24 @@
+<a name"0.2.0"></a>
+## 0.2.0 (2015-06-09)
+
+#### Features
+
+* Disable `-extoff` flag to be set by default ([5aa409e7](https://github.com/karma-runner/karma-ie-launcher/commit/5aa409e7), closes [#27](https://github.com/karma-runner/karma-ie-launcher/issues/27))
+
+
+#### Breaking Changes
+
+* IE Addons are now disabled by default when using the karma-ie-launcher ([5aa409e7](https://github.com/karma-runner/karma-ie-launcher/commit/5aa409e7))
+
+
+
 <a name"0.1.5"></a>
 ### 0.1.5 (2015-06-09)
 
 
 #### Bug Fixes
 
-* fail when launcher is called if IE is not found instead of failing as soon as th ([4ff5d1e6](https://github.com/karma-runner/karma-ie-launcher/commit/4ff5d1e6), closes [#14](https://github.com/karma-runner/karma-ie-launcher/issues/14))
+* fail when launcher is called if IE is not found instead of failing as soon as the plugin is loaded ([4ff5d1e6](https://github.com/karma-runner/karma-ie-launcher/commit/4ff5d1e6), closes [#14](https://github.com/karma-runner/karma-ie-launcher/issues/14))
 
 
 <a name"0.1.4"></a>
@@ -48,4 +62,3 @@
 
 <a name"0.0.1"></a>
 ### 0.0.1 (2015-06-09)
-
