@@ -87,9 +87,9 @@ describe 'launcher', ->
     fsMock = null
 
     beforeEach ->
-      process.env['' + 'PROGRAMW6432'] = '\\fake\\PROGRAMW6432'
-      process.env['' + 'PROGRAMFILES(X86)'] = '\\fake\\PROGRAMFILES(X86)'
-      process.env['' + 'PROGRAMFILES'] = '\\fake\\PROGRAMFILES'
+      process.env['PROGRAMW6432'] = '\\fake\\PROGRAMW6432'
+      process.env['PROGRAMFILES(X86)'] = '\\fake\\PROGRAMFILES(X86)'
+      process.env['PROGRAMFILES'] = '\\fake\\PROGRAMFILES'
 
       fsMock = mocks.fs.create
         'folder1':

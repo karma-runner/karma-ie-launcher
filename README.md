@@ -1,20 +1,16 @@
-# karma-ie-launcher [![Build Status](https://travis-ci.org/karma-runner/karma-ie-launcher.svg?branch=master)](http://travis-ci.org/karma-runner/karma-ie-launcher)
+# karma-ie-launcher
+
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/karma-runner/karma-ie-launcher)
+ [![npm version](https://img.shields.io/npm/v/karma-ie-launcher.svg?style=flat-square)](https://www.npmjs.com/package/karma-ie-launcher) [![npm downloads](https://img.shields.io/npm/dm/karma-ie-launcher.svg?style=flat-square)](https://www.npmjs.com/package/karma-ie-launcher)
+
+[![Build Status](https://img.shields.io/travis/karma-runner/karma-ie-launcher/master.svg?style=flat-square)](https://travis-ci.org/karma-runner/karma-ie-launcher) [![Dependency Status](https://img.shields.io/david/karma-runner/karma-ie-launcher.svg?style=flat-square)](https://david-dm.org/karma-runner/karma-ie-launcher) [![devDependency Status](https://img.shields.io/david/dev/karma-runner/karma-ie-launcher.svg?style=flat-square)](https://david-dm.org/karma-runner/karma-ie-launcher#info=devDependencies)
 
 > Launcher for Internet Explorer.
 
 ## Installation
 
-The easiest way is to keep `karma-ie-launcher` as a devDependency in your `package.json`.
-```json
-{
-  "devDependencies": {
-    "karma": "~0.10",
-    "karma-ie-launcher": "~0.1"
-  }
-}
-```
+The easiest way is to keep `karma-ie-launcher` as a devDependency, by running
 
-You can simply do it by:
 ```bash
 npm install karma-ie-launcher --save-dev
 ```
