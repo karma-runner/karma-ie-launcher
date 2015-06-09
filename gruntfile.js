@@ -8,8 +8,8 @@ module.exports = function (grunt) {
       },
       unit: {
         src: [
-          'test/mocha-globals.coffee',
-          'test/*.spec.coffee'
+          'test/mocha-globals.js',
+          'test/*.spec.js'
         ]
       }
     },
@@ -32,7 +32,8 @@ module.exports = function (grunt) {
       target: [
         'index.js',
         'gruntfile.js',
-        'karma.conf.js'
+        'karma.conf.js',
+        'test/*.js'
       ]
     }
   })
