@@ -1,3 +1,4 @@
+var path = require('path')
 var di = require('di')
 var mocks = require('mocks')
 
@@ -6,7 +7,7 @@ describe('launcher', function () {
 
   beforeEach(function () {
     EventEmitter = require('../node_modules/karma/lib/events').EventEmitter
-    IELauncher = mocks.loadFile(__dirname + '/../index').module.exports
+    IELauncher = mocks.loadFile(path.join(__dirname, '/../index')).module.exports
     module = {
       baseBrowserDecorator: ['value', function () {}],
       emitter: ['value', new EventEmitter()],
@@ -111,7 +112,7 @@ describe('launcher', function () {
         }
       })
 
-      IELauncher = mocks.loadFile(__dirname + '/../index', {
+      IELauncher = mocks.loadFile(path.join(__dirname, '/../index'), {
         fs: fsMock
       }).module.exports
 
@@ -159,7 +160,7 @@ describe('launcher', function () {
           }
         }
 
-        IELauncher = mocks.loadFile(__dirname + '/../index', {
+        IELauncher = mocks.loadFile(path.join(__dirname, '/../index'), {
           child_process: child_processMock
         }).module.exports
         injector = new di.Injector([module, IELauncher])

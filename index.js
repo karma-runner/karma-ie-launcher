@@ -82,7 +82,6 @@ function IEBrowser (baseBrowserDecorator, logger, args) {
       }
       cb()
     })
-
   }
 
   this._getOptions = function (url) {
