@@ -18,7 +18,7 @@ var PROCESS_NAME = 'iexplore.exe'
 
 // Find the ie executable
 function getInternetExplorerExe () {
-  var suffix = '\\Internet Explorer\\' + PROCESS_NAME
+  var suffix = path.join('Internet Explorer', PROCESS_NAME)
   var locations = _.map(_.compact([
     process.env['PROGRAMW6432'],
     process.env['PROGRAMFILES(X86)'],
