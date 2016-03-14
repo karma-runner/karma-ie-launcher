@@ -4,6 +4,7 @@
 // Dependencies
 // ------------
 
+var path = require('path')
 var fs = require('fs')
 var urlparse = require('url').parse
 var urlformat = require('url').format
@@ -23,7 +24,7 @@ function getInternetExplorerExe () {
     process.env['PROGRAMFILES(X86)'],
     process.env['PROGRAMFILES']
   ]), function (prefix) {
-    return prefix + suffix
+    return path.join(prefix, suffix)
   })
 
   return _.find(locations, function (location) {
