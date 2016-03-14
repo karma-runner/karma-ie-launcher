@@ -101,9 +101,9 @@ describe('launcher', function () {
     var fsMock, win32Location
 
     beforeEach(function () {
-      process.env['PROGRAMW6432'] = '\\fake\\PROGRAMW6432'
-      process.env['PROGRAMFILES(X86)'] = '\\fake\\PROGRAMFILES(X86)'
-      process.env['PROGRAMFILES'] = '\\fake\\PROGRAMFILES'
+      process.env['PROGRAMW6432'] = path.normalize('/fake/PROGRAMW6432')
+      process.env['PROGRAMFILES(X86)'] = path.normalize('/fake/PROGRAMFILES(X86)')
+      process.env['PROGRAMFILES'] = path.normalize('/fake/PROGRAMFILES')
       fsMock = mocks.fs.create({
         'folder1': {
           'Internet Explorer': {
@@ -124,20 +124,20 @@ describe('launcher', function () {
     })
 
     it('should locate in PROGRAMW6432', function (done) {
-      process.env['' + 'PROGRAMW6432'] = '\\folder1'
-      expect(win32Location()).to.equal('\\folder1\\Internet Explorer\\iexplore.exe')
+      process.env['' + 'PROGRAMW6432'] = path.normalize('/folder1')
+      expect(win32Location()).to.equal(path.normalize('/folder1/Internet Explorer/iexplore.exe'))
       done()
     })
 
     it('should locate in PROGRAMFILES(X86)', function (done) {
-      process.env['' + 'PROGRAMFILES(X86)'] = '\\folder1'
-      expect(win32Location()).to.equal('\\folder1\\Internet Explorer\\iexplore.exe')
+      process.env['' + 'PROGRAMFILES(X86)'] = path.normalize('/folder1')
+      expect(win32Location()).to.equal(path.normalize('/folder1/Internet Explorer/iexplore.exe'))
       done()
     })
 
     it('should locate in PROGRAMFILES', function (done) {
-      process.env['' + 'PROGRAMFILES'] = '\\folder1'
-      expect(win32Location()).to.equal('\\folder1\\Internet Explorer\\iexplore.exe')
+      process.env['' + 'PROGRAMFILES'] = path.normalize('/folder1')
+      expect(win32Location()).to.equal(path.normalize('/folder1/Internet Explorer/iexplore.exe'))
       done()
     })
 

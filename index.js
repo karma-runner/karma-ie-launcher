@@ -4,6 +4,7 @@
 // Dependencies
 // ------------
 
+var path = require('path')
 var fs = require('fs')
 var urlparse = require('url').parse
 var urlformat = require('url').format
@@ -17,13 +18,13 @@ var PROCESS_NAME = 'iexplore.exe'
 
 // Find the ie executable
 function getInternetExplorerExe () {
-  var suffix = '\\Internet Explorer\\' + PROCESS_NAME
+  var suffix = path.join('Internet Explorer', PROCESS_NAME)
   var locations = _.map(_.compact([
     process.env['PROGRAMW6432'],
     process.env['PROGRAMFILES(X86)'],
     process.env['PROGRAMFILES']
   ]), function (prefix) {
-    return prefix + suffix
+    return path.join(prefix, suffix)
   })
 
   return _.find(locations, function (location) {
