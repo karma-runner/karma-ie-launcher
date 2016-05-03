@@ -1,3 +1,14 @@
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/karma-runner/karma-ie-launcher/compare/v0.2.0...v2.0.0) (2016-05-03)
+
+
+### Bug Fixes
+
+* travis([68c0920](https://github.com/karma-runner/karma-ie-launcher/commit/68c0920))
+* travis([0f584d9](https://github.com/karma-runner/karma-ie-launcher/commit/0f584d9))
+
+
+
 <a name"0.2.0"></a>
 ## 0.2.0 (2015-06-09)
 
