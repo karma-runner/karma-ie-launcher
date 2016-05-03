@@ -46,11 +46,14 @@
     "sinon-chai": "^2.8.0"
   },
   "contributors": [
+    "sarychev <dizel3d@gmail.com>",
     "sylvain-hamel <sylvainhamel0@gmail.com>",
-    "Sylvain Hamel <sylvainhamel0@gmail.com>",
     "dignifiedquire <dignifiedquire@gmail.com>",
+    "Sylvain Hamel <sylvainhamel0@gmail.com>",
     "Andreas Krummsdorf <a.krummsdorf@litixsoft.de>",
     "Nikita Khomyakov <dr.evil@krtn.eu>",
+    "Mark Ethan Trostler <mark@zzo.com>",
+    "Friedel Ziegelmayer <dignifiedquire@gmail.com>",
     "Christopher Currie <ccurrie@impresys.com>"
   ]
 }
