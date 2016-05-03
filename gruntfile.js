@@ -70,7 +70,7 @@ module.exports = function (grunt) {
   grunt.registerTask('release', 'Bump the version and publish to NPM.', function (type) {
     grunt.task.run([
       'npm-contributors',
-      'bump-only:' + (type || 'patch'),
+      'bump:' + (type || 'patch') + ':bump-only',
       'conventionalChangelog',
       'bump-commit',
       'conventionalGithubReleaser',
