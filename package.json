@@ -1,6 +1,6 @@
 {
   "name": "karma-ie-launcher",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "A Karma plugin. Launcher for Internet Explorer.",
   "main": "index.js",
   "scripts": {
@@ -36,6 +36,7 @@
     "grunt-bump": "^0.7.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-conventional-changelog": "^6.1.0",
+    "grunt-conventional-github-releaser": "^0.5.0",
     "grunt-eslint": "^18.0.0",
     "grunt-npm": "^0.0.2",
     "grunt-simple-mocha": "^0.4.0",
@@ -50,9 +51,9 @@
     "sylvain-hamel <sylvainhamel0@gmail.com>",
     "dignifiedquire <dignifiedquire@gmail.com>",
     "Sylvain Hamel <sylvainhamel0@gmail.com>",
+    "Mark Ethan Trostler <mark@zzo.com>",
     "Andreas Krummsdorf <a.krummsdorf@litixsoft.de>",
     "Nikita Khomyakov <dr.evil@krtn.eu>",
-    "Mark Ethan Trostler <mark@zzo.com>",
     "Friedel Ziegelmayer <dignifiedquire@gmail.com>",
     "Christopher Currie <ccurrie@impresys.com>"
   ]
