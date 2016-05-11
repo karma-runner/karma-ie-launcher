@@ -148,20 +148,20 @@ describe('launcher', function () {
   })
 
   describe('_onProcessExit', function () {
-    var child_processCmd, onProcessExit
+    var childProcessCmd, onProcessExit
 
     beforeEach(function () {
       onProcessExit = function () {
-        var child_processMock
-        child_processMock = {
+        var childProcessMock
+        childProcessMock = {
           exec: function (cmd, cb) {
-            child_processCmd = cmd
+            childProcessCmd = cmd
             cb()
           }
         }
 
         IELauncher = mocks.loadFile(path.join(__dirname, '/../index'), {
-          child_process: child_processMock
+          child_process: childProcessMock
         }).module.exports
         injector = new di.Injector([module, IELauncher])
         launcher = injector.get('launcher:IE')
@@ -174,7 +174,7 @@ describe('launcher', function () {
 
     it('should call wmic with process ID', function (done) {
       onProcessExit()
-      expect(child_processCmd).to.equal(
+      expect(childProcessCmd).to.equal(
         'wmic.exe Path win32_Process where ' +
         '"Name=\'iexplore.exe\' and CommandLine Like \'%SCODEF:10%\'" call Terminate'
       )
