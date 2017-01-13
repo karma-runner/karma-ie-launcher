@@ -71,7 +71,7 @@ function IEBrowser (baseBrowserDecorator, logger, args) {
     var scodef = 'SCODEF:' + pid
 
     // wmic.exe : http://msdn.microsoft.com/en-us/library/aa394531(v=vs.85).aspx
-    var wmic = 'wmic.exe Path win32_Process ' +
+    var wmic = 'C:\\Windows\\system32\\wbem\\wmic.exe Path win32_Process ' +
       'where "Name=\'' + PROCESS_NAME + "' and " +
       "CommandLine Like '%" + scodef + '%\'" call Terminate'
 
