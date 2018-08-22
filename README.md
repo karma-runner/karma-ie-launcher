@@ -19,6 +19,10 @@ npm install karma-ie-launcher --save-dev
 ```js
 // karma.conf.js
 module.exports = function(config) {
+  plugins: [
+    require('karma-ie-launcher'),
+    // ...
+  ],
   config.set({
     browsers: ['IE']
   });
