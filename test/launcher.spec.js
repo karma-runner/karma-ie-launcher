@@ -175,7 +175,7 @@ describe('launcher', function () {
     it('should call wmic with process ID', function (done) {
       onProcessExit()
       expect(childProcessCmd).to.equal(
-        'wmic.exe Path win32_Process where ' +
+        'C:\\Windows\\system32\\wbem\\wmic.exe Path win32_Process where ' +
         '"Name=\'iexplore.exe\' and CommandLine Like \'%SCODEF:10%\'" call Terminate'
       )
       done()
