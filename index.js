@@ -98,11 +98,11 @@ function IEBrowser (baseBrowserDecorator, logger, args) {
   }
 
   var baseOnProcessExit = this._onProcessExit
-  this._onProcessExit = function (code, errorOutput) {
+  this._onProcessExit = function (code, signal, errorOutput) {
     var pid = this._process.pid
     killExtraIEProcess(pid, function () {
       if (baseOnProcessExit) {
-        baseOnProcessExit(code, errorOutput)
+        baseOnProcessExit(code, signal, errorOutput)
       }
     })
   }
