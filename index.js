@@ -10,6 +10,10 @@ var urlparse = require('url').parse
 var urlformat = require('url').format
 var exec = require('child_process').exec
 var _ = require('lodash')
+var Jobs = require('qjobs')
+
+// can only launch one IE instance at a time
+var jobs = new Jobs({maxConcurrency: 1})
 
 // Constants
 // ---------
@@ -36,6 +40,7 @@ function getInternetExplorerExe () {
 function IEBrowser (baseBrowserDecorator, logger, args) {
   baseBrowserDecorator(this)
 
+  var self = this
   var log = logger.create('launcher')
   var flags = args.flags || []
 
@@ -83,6 +88,16 @@ function IEBrowser (baseBrowserDecorator, logger, args) {
       }
       cb()
     })
+  }
+
+  this._start = function (url) {
+    jobs.add(function (args, done) {
+      // noinspection JSUnresolvedFunction
+      self._execCommand(self._getCommand(), self._getOptions(url))
+      self.on('done', done)
+    }, [])
+
+    jobs.run()
   }
 
   this._getOptions = function (url) {
